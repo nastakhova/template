@@ -1,0 +1,135 @@
+.btn-menu {
+	@include size(40px, 40px);
+	background: $primary-color;
+	border-radius: 5px;
+	display: block;
+	float: right;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+
+	@include media('>tablet') {
+		display: none;
+	}
+
+	span,
+	&:after,
+	&:before {
+		content: '';
+		position: absolute;
+		top:9px;
+		left: 6px;
+		right: 6px;
+		height: 4px;
+		border-radius: 3px;
+		background: $white;
+		transition: all 0.3s ease;
+	}
+
+	span {
+		top: 50%;
+		margin-top: -2px;
+	}
+
+	&:after {
+		top: 27px;
+	}
+
+	&:hover,
+	.active-menu & {
+		background: $white;
+
+		&:after,
+		&:before {
+			background: $primary-color;
+			top: 50%;
+			margin-top: -2px;
+			transform: rotate(-45deg);
+		}
+
+		&:before {
+			transform: rotate(45deg);
+		}
+
+		span {
+			opacity: 0;
+		}
+	}
+}
+
+.main-nav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 260px;
+	right: 0;
+	background: $primary-color;
+	padding: 10px 20px;
+	height: 100vh;
+	overflow: auto;
+	transform: translateX(260px);
+	transition: transform 0.3s ease;
+
+	@include media('>tablet') {
+		position: static;
+		float: right;
+		height: auto;
+		overflow: visible;
+		width: auto;
+		padding: 0;
+		background: none;
+		transform: translateX(0);
+	}
+
+	ul {
+		@extend %listreset;
+		font-size: 2rem;
+		text-transform: uppercase;
+
+		@include media('>tablet') {
+			float: left;
+		}
+	}
+
+	li {
+		border-bottom: 2px solid $white; 
+
+		@include media('>tablet') {
+			float: left;
+			padding: 0 0 0 20px;
+		}
+
+		a {
+			display: block;
+			padding: 10px;
+			color: $white;
+			position: relative;
+
+			&:hover {
+				text-decoration: none;
+				opacity: 0.7;
+			}
+
+			@include media('>tablet') {
+				color: $primary-color;
+				padding: 0 5px;
+				&:after {
+					@include size(0, 3px);
+					content: '';
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					transform: translateX(-50%);
+					border-radius: 4px;
+					transition: width 0.3s ease;
+					background: $primary-color;
+				}
+
+				&:hover:after {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

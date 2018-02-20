@@ -1,0 +1,40 @@
+$mq-support: true;
+$mq-fixed-value: false;
+
+@import "base/var";
+@import "base/mixins";
+@import "vendors/include-media";
+@import "vendors/normalize";
+@import "base/reset";
+@import "base/forms";
+@import "base/typography";
+@import "base/helpers";
+@import "bootstrap-scss/_bootstrap-grid";
+
+@import "layout/header";
+@import "layout/nav";
+@import "layout/footer";
+
+body {
+	position: relative;
+}
+
+#wrapper {
+	overflow: hidden;
+	width: 100%;
+}
+
+.page {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 9;
+	background: $white;
+	transition: transform 0.3s ease;
+
+	.active-menu & {
+		transform: translateX(-260px);
+	}
+}

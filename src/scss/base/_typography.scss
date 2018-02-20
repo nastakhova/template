@@ -1,0 +1,76 @@
+@import '_var';
+@import '_mixins';
+// Typography
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+  font-family: $headings-font-family;
+  font-weight: bold;
+  margin: 0 0 0.5em;
+  color: $headings-color;
+}
+
+h1, .h1 {
+  font-size: 2.8rem;
+}
+
+h2, .h2 {
+  font-size: 2.4rem;
+}
+
+h3, .h3 {
+  font-size: 2rem;
+}
+
+h4, .h4 {
+  font-size: 1.8rem;
+}
+
+h5, .h5 {
+  font-size: 1.6rem;
+}
+
+h6, .h6 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  transition: color 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  color: $base-link-color;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  @extend %clearfix;
+}
+
+.btn {
+  background: rgba($btn-bg, 0.6);
+  color: $btn-color;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  border-bottom: 3px solid $btn-bg;
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  &:hover {
+    background: rgba($btn-bg, 0.2);
+    color: $btn-bg;
+    text-decoration: none;
+  }
+}
